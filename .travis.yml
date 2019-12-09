@@ -16,9 +16,9 @@ script:
   # - CGO_ENABLED=0 go build -o demo
   - echo "$REGISTRY_PASSWORD" | docker login --username $REGISTRY_USER --password-stdin
   
-  - docker build -f Dockerfile -t $REGISTRY_USER/demo:latest ./
+  - docker build -f Dockerfile -t eSpitzer/demo:latest ./
   - GIT_SHA="$(git rev-parse --short HEAD)"
-  - docker tag $REGISTRY_USER/demo:latest EvaSpitzer/demo:$GIT_SHA
+  - docker tag eSpitzer/demo:latest EvaSpitzer/demo:$GIT_SHA
   
-  - docker push $REGISTRY_USER/demo:latest
-  - docker push $REGISTRY_USER/demo:$GIT_SHA
+  - docker push eSpitzer/demo:latest
+  - docker push eSpitzer/demo:$GIT_SHA
