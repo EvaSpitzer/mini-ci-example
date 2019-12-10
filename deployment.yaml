@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo #Jede Ressource muss einen Nahmen haben (Pflichtfeld)
+spec:
+  replicas: 1 #Anzahl der Pods
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      labels:
+        app: demo # dieses Template wird jeden Pod mitgegeben
+    spec:
+      containers:
+      - name: demo
+        image: evasp/demo:latest
+        ports:
+        - containerPort: 8888
